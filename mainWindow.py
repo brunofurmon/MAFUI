@@ -29,13 +29,14 @@ class MainWindow(QMainWindow):
         loadFileButton.triggered.connect(self.openFileNameDialog)
         fileMenu.addAction(loadFileButton)
 
+        fileMenu.addSeparator()
+
         # Ação para sair do programa
         exitButton = QAction(QIcon('exit24.png'), 'Exit', self)
         exitButton.setShortcut('Ctrl+Q')
         exitButton.setStatusTip('Exit application')
         exitButton.triggered.connect(self.close)
         fileMenu.addAction(exitButton)
-
 
         # Inicia a janela
         self.initUI()

@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
     def openFileNameDialog(self):    
         options = QFileDialog.Options()
         #options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","CSV Files (*.csv)", options=options)
+        fileName, _ = QFileDialog.getOpenFileName(self,"Abrir arquivo CSV", "","CSV Files (*.csv)", options=options)
         if fileName:
             print(fileName)
         

@@ -52,4 +52,4 @@ class MainWindow(QMainWindow):
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","CSV Files (*.csv)", options=options)
         if fileName:
             print(fileName)
-            
+        

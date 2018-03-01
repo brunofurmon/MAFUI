@@ -6,36 +6,7 @@ Lista de todos os modelos para cálculo
 """
 
 import math
-
-def newtonRaphson(inputValue):
-     
-    beta = inputValue[0]
-    B = inputValue[1]
-    gama = inputValue[2]
-    C = inputValue[3]
-    delta = inputValue[4]
-    errorAdmissible = inputValue[5]   
-    
-    icognita = min( math.log(delta / beta) / B , math.log(delta / gama) / C )
-
-    errorGoal = 1
-
-    i=1
-    while errorGoal > 0:
-        expB = beta * math.exp( B * icognita )
-        expC = gama * math.exp( C * icognita )
-
-        icognita -= ( expB + expC ) / ( B * expB + C * expC ) * math.log( ( expB + expC ) / delta )
-
-        errorGoal = ( expB *  ( 1 + errorAdmissible ) ** B + expC *  ( 1 + errorAdmissible)  ** C  - delta ) / ( expB + expC - delta ) 
-
-        i += 1
-        if i > 999:
-            print ('NAO CONVERGE')
-            break
-
-    return icognita
-
+from Newton_Raphson import newtonRaphson
 
 def fatigueModels(countedCycles, modelToExecute):
 

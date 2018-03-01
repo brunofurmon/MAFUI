@@ -44,7 +44,6 @@ class MainWindow(QMainWindow):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
- 
         self.show()
  
     def openFileNameDialog(self):    
@@ -53,3 +52,4 @@ class MainWindow(QMainWindow):
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","CSV Files (*.csv)", options=options)
         if fileName:
             print(fileName)
+            

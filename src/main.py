@@ -1,6 +1,6 @@
 # Main Module
 import sys
-from mainWindow import MainWindow
+from forms.mainWindow import MainWindow
 from PyQt5.QtWidgets import QApplication
 
 if __name__ == '__main__':

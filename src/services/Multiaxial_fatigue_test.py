@@ -6,11 +6,11 @@ Created on Tue Aug 29 2017
 """
 
 import math
+
+from Modelos import fatigueModels
+from Newton_Raphson import newtonRaphson
 from Plane_Projection import planeProject
 from Rainflow import rainflow
-from Newton_Raphson import newtonRaphson  
-from Modelos import fatigueModels
-
 
 if __name__ == "__main__":
     stressX = [629, 629]
@@ -20,14 +20,19 @@ if __name__ == "__main__":
 
     entrada = [stressX, stressY, shear, pressure]
 
+    # Parametros
     modelToExecute = 'SWT'
+    planeToExecute = 'B'
+    degreeStep = 10
 
     totalDamage=[]
-    for i in range(18):
-        
-        degree = i * 10              
-                
-        projectDamage = fatigueModels(rainflow(planeProject(entrada , degree, 'B')), modelToExecute)
+    for degree in range(0, 180, degreeStep):
+
+        projectedEntryData = planeProject(entrada , degree, planeToExecute)
+
+        countedCycles = rainflow(projectedEntryData)
+
+        projectDamage = fatigueModels(countedCycles, modelToExecute)
 
         totalDamage.append([projectDamage, degree])
 
